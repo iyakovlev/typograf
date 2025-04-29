@@ -1,7 +1,11 @@
 <!-- Keep a Changelog guide -> https://keepachangelog.com -->
 
-# typograf Changelog
+# Typograf Changelog
 
 ## [Unreleased]
+
+## [0.1.0] - 2025-04-29
+
 ### Added
-- Initial scaffold created from [IntelliJ Platform Plugin Template](https://github.com/JetBrains/intellij-platform-plugin-template)
+
+- Базовая функциональность для работы со строками в strings.xml

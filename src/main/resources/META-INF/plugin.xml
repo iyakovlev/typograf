@@ -1,15 +1,20 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.iyakovlev.typograf</id>
-    <name>typograf</name>
-    <vendor>iyakovlev</vendor>
+    <id>me.deft.typograf</id>
+    <name>Typograf</name>
+    <vendor>Yakovlev Ilya</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.xml</depends>
+    <depends>org.jetbrains.android</depends>
 
-    <resource-bundle>messages.MyBundle</resource-bundle>
-
-    <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.iyakovlev.typograf.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-        <postStartupActivity implementation="com.github.iyakovlev.typograf.startup.MyProjectActivity" />
-    </extensions>
+    <actions>
+        <action id="TypografAction"
+                class="me.deft.typograf.TypografAction"
+                text="Оттипографить"
+                description="Отправить текст в Типограф">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </action>
+    </actions>
 </idea-plugin>
