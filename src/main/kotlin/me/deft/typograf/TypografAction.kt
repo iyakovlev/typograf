@@ -14,7 +14,14 @@ import java.net.URL
 import java.nio.charset.StandardCharsets
 import javax.xml.parsers.DocumentBuilderFactory
 
+private const val TAG_ITEM = "item"
+private const val TAG_STRING = "string"
+
 class TypografAction : AnAction() {
+    companion object {
+        val supportedTags = setOf(TAG_STRING, TAG_ITEM)
+    }
+
     override fun getActionUpdateThread(): ActionUpdateThread = ActionUpdateThread.BGT
 
     override fun update(e: AnActionEvent) {
@@ -29,7 +36,7 @@ class TypografAction : AnAction() {
             file.findElementAt(offset)?.parent?.let {
                 findParentXmlTag(it)
             }
-        e.presentation.isEnabledAndVisible = element is XmlTag && element.name == "string"
+        e.presentation.isEnabledAndVisible = element is XmlTag && supportedTags.contains(element.name)
     }
 
     override fun actionPerformed(e: AnActionEvent) {
