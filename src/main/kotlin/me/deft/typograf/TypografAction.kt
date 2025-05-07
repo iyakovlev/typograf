@@ -10,6 +10,7 @@ import com.intellij.psi.xml.XmlTag
 import org.xml.sax.InputSource
 import java.io.StringReader
 import java.net.HttpURLConnection
+import java.net.URI
 import java.net.URL
 import java.nio.charset.StandardCharsets
 import javax.xml.parsers.DocumentBuilderFactory
@@ -67,7 +68,7 @@ class TypografAction : AnAction() {
     }
 
     private fun sendToTypograf(text: String): String {
-        val url = URL("http://typograf.artlebedev.ru/webservices/typograf.asmx")
+        val url = URI("http://typograf.artlebedev.ru/webservices/typograf.asmx").toURL()
         val connection = createConnection(url)
 
         val soapRequest =
